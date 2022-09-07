@@ -1,7 +1,9 @@
 package com.example.profile.data.network
 
-import com.example.profile.data.model.ResponsePockemon
+import com.example.profile.data.model.*
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface ApiService {
@@ -10,4 +12,14 @@ interface ApiService {
     // limit=1                   parametros
     @GET("/api/v2/pokemon/charizard?")
     suspend fun getPokemon(@Query("limit") limit: Int): ResponsePockemon
+
+    @POST("/dev/login")
+    suspend fun login(@Body loginRequest: LoginRequest): LoginResponse
+
+    @POST("/dev/register")
+    suspend fun register(@Body registerRequest: RegisterRequest): RegisterResponse
+
+    @POST("/dev/delete/{user}")
+    suspend fun delete(@Query("user") user: String): DeleteResponse
+
 }

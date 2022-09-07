@@ -16,10 +16,10 @@
         android:theme="@style/Theme.Profile"
         tools:targetApi="31">
         <activity
-            android:name=".ActDashboard"
+            android:name="com.example.profile.presentation.view.Activity.ActRegister"
             android:exported="false" />
         <activity
-            android:name=".ActLogin"
+            android:name="com.example.profile.presentation.view.Activity.ActLogin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

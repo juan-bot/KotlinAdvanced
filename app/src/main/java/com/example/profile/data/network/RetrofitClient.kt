@@ -24,7 +24,7 @@ object RetrofitClient {
             * .client
             * */
             Retrofit.Builder()
-                .baseUrl("https://pokeapi.co/")
+                .baseUrl("https://us-central1-mh-api-dev.cloudfunctions.net/")
                 .client(okhttpClient.build())
                 .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
             /*okHttpClient.connectTimeout(connectionTimeOut,TimeUnit.SECONDS)

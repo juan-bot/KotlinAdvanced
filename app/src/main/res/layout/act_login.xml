@@ -23,8 +23,7 @@
                 android:layout_height="200dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="95dp"
-                android:background="@drawable/login"
-                android:layout_marginTop="40dp">
+                android:background="@drawable/login">
 
             </androidx.appcompat.widget.AppCompatImageView>
 
@@ -35,8 +34,8 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:hint="ssdf"
-                app:errorTextColor="@color/teal_200"
+                android:hint="Usuario"
+                app:errorTextColor="#E91E63"
                 android:layout_below="@+id/imageLogin"
                 android:layout_marginTop="30dp"
                 app:startIconDrawable="@drawable/ic_user"
@@ -47,6 +46,7 @@
                     style="@style/Theme_EditTextJP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:inputType="textCapWords"
                     android:maxLength="30"
                     />
@@ -54,28 +54,40 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputSurname"
+                android:id="@+id/inputPassword"
                 style="@style/Theme_InputTextJP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/inputName"
                 android:layout_marginTop="30dp"
-                android:hint="adsdfe"
+                android:hint="Contraseña"
                 app:startIconDrawable="@drawable/ic_lock"
-                app:layout_constraintTop_toTopOf="parent" >
+                app:layout_constraintTop_toTopOf="parent"
+                app:endIconMode="password_toggle">
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etSurname"
+                    android:id="@+id/etPass"
                     style="@style/Theme_EditTextJP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:maxLength="30"
-                    />
+                    android:maxLength="30" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/btnRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/inputPassword"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:clickable="true"
+                android:text="Register"
+                android:textSize="30dp">
 
+            </com.google.android.material.textview.MaterialTextView>
         </RelativeLayout>
     </ScrollView>
 
@@ -86,4 +98,6 @@
         android:layout_alignParentBottom="true"
         android:background="@color/teal_200"
         android:text="Login"></androidx.appcompat.widget.AppCompatButton>
+
+
 </RelativeLayout>
