@@ -238,8 +238,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:maxLength="30"
-                    />
+                    android:maxLength="30" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -264,7 +263,27 @@
                     android:maxLength="30"
                     />
             </com.google.android.material.textfield.TextInputLayout>
+            <RadioGroup
+                android:id="@+id/opt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/inputpass2">
 
+                <RadioButton
+                    android:id="@+id/radio_deposito"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:checked="true"
+                    android:text="Soltero" />
+
+                <RadioButton
+                    android:id="@+id/radio_paypal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Casado" />
+            </RadioGroup>
         </RelativeLayout>
 
     </ScrollView>

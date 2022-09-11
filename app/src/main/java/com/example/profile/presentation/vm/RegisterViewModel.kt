@@ -17,6 +17,9 @@ class RegisterViewModel : ViewModel() {
         viewModelScope.launch {
             _stateRegister.postValue(RegisterState.Cargando)
             val response = registerUseCase(registerRequest)
+            println("${registerRequest.name}")
+            println("${registerRequest.passwor}")
+            Thread.sleep(2000)
             if (response.status) {
                 _stateRegister.postValue(RegisterState.Exitoso)
             } else {

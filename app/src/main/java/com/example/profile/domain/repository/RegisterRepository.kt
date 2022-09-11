@@ -2,19 +2,17 @@ package com.example.profile.domain.repository
 
 import com.example.profile.data.model.RegisterRequest
 import com.example.profile.data.model.RegisterResponse
+import com.example.profile.data.network.RetrofitClient
 
 class RegisterRepository {
     var wifi = true
-    fun register(registerRequest: RegisterRequest): RegisterResponse {
+    suspend fun register(registerRequest: RegisterRequest): RegisterResponse {
         return if (wifi) {
-            RegisterResponse(
-                status = true,
-                message = "Success desde api"
-            )
+            return RetrofitClient.api().register(registerRequest)
         } else {
             RegisterResponse(
-                status = true,
-                message = "Success desde room"
+                false,
+                "Connection Failed"
             )
         }
     }

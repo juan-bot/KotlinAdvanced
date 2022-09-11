@@ -2,15 +2,19 @@ package com.example.profile.data.local.room.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.Query
 import com.example.profile.data.local.room.entity.UserRegister
 
 @Dao
 interface UserDao {
     @Insert
     suspend fun insertUser(userRegister: UserRegister)
+
+    // @Query("SELECT * From UserRegister WHERE user = :userParameter")
+    // suspend fun getUser(userParameter: String): String
 /*
-    @Query("SELECT * FROM user")
-    suspend fun getUser(): List<UserRegister>
+    @Query("SELECT * FROM User")
+    suspend fun getUser(): List<UserLogin>
 
     @Query("SELECT name FROM user WHERE user = :userParameter")
     suspend fun getName(userParameter: String): String

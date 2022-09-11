@@ -4,4 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="obligatori_field">Campo Obligatorio</string>
+
+    <string name = "open_drawer">Drawer Open</string>
+    <string name = "close_drawer">Drawer Close</string>
 </resources>

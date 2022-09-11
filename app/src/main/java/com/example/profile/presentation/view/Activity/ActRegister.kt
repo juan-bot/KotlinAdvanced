@@ -7,8 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.profile.R
-import com.example.profile.data.local.room.DataBase
-import com.example.profile.data.local.room.entity.UserRegister
+import com.example.profile.RegisterState
 import com.example.profile.data.model.RegisterRequest
 import com.example.profile.databinding.ActRegisterBinding
 import com.example.profile.presentation.presenter.DatePickerAlert
@@ -25,6 +24,7 @@ class ActRegister : AppCompatActivity() {
         setContentView(view)
         binding.btnRegister.setOnClickListener {
             val validate = validateField()
+
             lifecycleScope.launch {
                 var data = RegisterRequest(
                     user = binding.etUser.text.toString(),
@@ -39,47 +39,21 @@ class ActRegister : AppCompatActivity() {
                     passwor = binding.etPass.text.toString(),
                     civil = "soltero"
                 )
-                /*viewModel.register(data)
-                lifecycleScope.launch {
+
+                viewModel.register(data)
+                /*lifecycleScope.launch {
                     val responseLogin = RetrofitClient.api().register(data)
                     println("Respuesta: $responseLogin")
                 }
-*/
-                // ROOM
-                val database = DataBase(this@ActRegister).getDB()
-                // database.daoUser().deleteUser()
+                */
 
-                database.daoUser().insertUser(
-                    UserRegister(
-                        binding.etUser.text.toString(),
-                        binding.etName.text.toString(),
-                        binding.etMatern.text.toString(),
-                        binding.etMatern.text.toString(),
-                        binding.etDate.text.toString(),
-                        binding.etEmail.text.toString(),
-                        binding.etSex.text.toString(),
-                        binding.etState.text.toString(),
-                        binding.etNum.text.toString(),
-                        binding.etPass.text.toString()
-                    )
-                )
                 /*val users = database.daoUser().getUser()
                 println(users)
                 val name = database.daoUser().getName("root")
                 println(name)*/
             }
         }
-// api
-        /*var data = LoginRequest(
-            name = binding.etName.text.toString(),
-            pass = binding.etPass.text.toString()
-        )
-        viewModel.login(data)
 
-        lifecycleScope.launch {
-            val responseLogin = RetrofitClient.api().login(data)
-            println("Respuesta: $responseLogin")
-        } */
         binding.etDate.setOnClickListener {
             var date = DatePickerAlert(this)
             date.show(binding.etDate)
@@ -102,6 +76,19 @@ class ActRegister : AppCompatActivity() {
                 listGender
             )
         )
+        viewModel.stateRegister.observe(this) {
+            when (it) {
+                is RegisterState.Cargando -> {
+                    println("API: Cargando")
+                }
+                is RegisterState.Exitoso -> {
+                    println("Api: Exitoso")
+                }
+                is RegisterState.Error -> {
+                    println("Api: Error ${it.mensaje}")
+                }
+            }
+        }
     }
     fun validateField(): Boolean {
         var band = false

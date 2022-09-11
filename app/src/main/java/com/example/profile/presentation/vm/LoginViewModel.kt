@@ -14,13 +14,11 @@ class LoginViewModel : ViewModel() {
     private var _stateLogin: MutableLiveData<LoginState> = MutableLiveData()
     val stateLogin: LiveData<LoginState> get() = _stateLogin
     fun login(loginRequest: LoginRequest) {
-        println("${loginRequest.name}")
-        println("${loginRequest.pass}")
         viewModelScope.launch {
             // loginUseCase(loginRequest)
             _stateLogin.postValue(LoginState.Cargando)
             val response = loginUseCase(loginRequest)
-            Thread.sleep(2000)
+            // Thread.sleep(2000)
             if (response.status) {
                 _stateLogin.postValue(LoginState.Exitoso)
             } else {

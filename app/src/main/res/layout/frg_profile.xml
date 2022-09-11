@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.view.fragment.FrgProfile">
+
+
+    <TextView
+        android:layout_marginTop="100dp"
+        android:id="@+id/tvUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="28dp"
+        android:text="Usuario:" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="28dp"
+        android:layout_below="@id/tvUser"
+        android:text="Nombre:" />
+    <TextView
+        android:id="@+id/tvLastName"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="28dp"
+        android:layout_below="@id/tvName"
+        android:text="Apellido:" />
+
+    <TextView
+        android:id="@+id/tvBirthday"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvLastName"
+        android:text="Name:"
+        android:textSize="28dp" />
+    <TextView
+        android:id="@+id/email"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="28dp"
+        android:layout_below="@id/tvBirthday"
+        android:text="Email: " />
+    <TextView
+        android:id="@+id/tvGenre"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="28dp"
+        android:layout_below="@id/email"
+        android:text="Genero: " />
+    <TextView
+        android:id="@+id/tvState"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="28dp"
+        android:layout_below="@id/tvGenre"
+        android:text="Estado: " />
+
+    <TextView
+        android:id="@+id/tvPhone"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvState"
+        android:text="Telefono"
+        android:textSize="28dp" />
+</RelativeLayout>

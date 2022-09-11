@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/frgHome">
+
+    <fragment
+        android:id="@+id/frgHome"
+        android:name="com.example.profile.presentation.view.fragment.FrgHome"
+        android:label="frg_home"
+        tools:layout="@layout/frg_home" >
+        <action
+            android:id="@+id/toFrgAbout"
+            app:destination="@id/frgAbout" />
+        <action
+            android:id="@+id/toFrgContentProfile"
+            app:destination="@id/frgContentProfile" />
+        <action
+            android:id="@+id/toFrgProfile"
+            app:destination="@id/frgProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/frgAbout"
+        android:name="com.example.profile.presentation.view.fragment.FrgAbout"
+        android:label="frg_about"
+        tools:layout="@layout/frg_about" />
+    <fragment
+        android:id="@+id/frgContentProfile"
+        android:name="com.example.profile.presentation.view.fragment.FrgContentProfile"
+        android:label="frg_content_profile"
+        tools:layout="@layout/frg_content_profile" />
+    <fragment
+        android:id="@+id/frgProfile"
+        android:name="com.example.profile.presentation.view.fragment.FrgProfile"
+        android:label="frg_profile"
+        tools:layout="@layout/frg_profile" />
+</navigation>
