@@ -16,13 +16,16 @@
         android:theme="@style/Theme.Profile"
         tools:targetApi="31">
         <activity
-            android:name="com.example.profile.presentation.view.Activity.ActDashboard"
+            android:name=".presentation.view.Activity.ActTest"
             android:exported="false" />
         <activity
-            android:name="com.example.profile.presentation.view.Activity.ActRegister"
+            android:name=".presentation.view.Activity.ActDashboard"
             android:exported="false" />
         <activity
-            android:name="com.example.profile.presentation.view.Activity.ActLogin"
+            android:name=".presentation.view.Activity.ActRegister"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.view.Activity.ActLogin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

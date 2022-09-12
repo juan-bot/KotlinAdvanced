@@ -47,7 +47,7 @@
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:hint="Materno"
+                android:hint="Paterno"
                 app:startIconDrawable="@drawable/ic_user"
                 >
                 <com.google.android.material.textfield.TextInputEditText
@@ -67,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/inputName"
-                android:hint="Paterno"
+                android:hint="Materno"
                 android:layout_toEndOf="@+id/inputPaterno"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

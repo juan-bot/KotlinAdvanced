@@ -24,14 +24,9 @@ class ActDashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         binding = ActDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val name = intent.getStringExtra("mmm").toString()
-        viewModel.getInfo(name)
-        viewModel.stateInfo.observe(this) {
-            val tvName: TextView = findViewById(R.id.tvName)
-            val tvEmail: TextView = findViewById(R.id.tvEmail)
-            tvName.setText(it.user.name)
-            tvEmail.setText(it.user.email)
-        }
+        val user = intent.getStringExtra("user").toString()
+        val pass = intent.getStringExtra("pass").toString()
+        viewModel.getInfo(user, pass, this)
         setNavigationView()
         setDrawerLayout()
     }
@@ -41,6 +36,31 @@ class ActDashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val viewHeader: View = LayoutInflater.from(this)
             .inflate(R.layout.header, navigationView, false)
         navigationView.addHeaderView(viewHeader)
+
+        viewModel.stateInfo.observe(this) { response ->
+            val tvName: TextView = findViewById(R.id.tvName)
+            val tvEmail: TextView = findViewById(R.id.tvEmail)
+            tvName.setText("${response.user.name}")
+            tvEmail.setText(" ")
+            /*lifecycleScope.launch {
+                val database = DataBase(this@ActDashboard).getDB()
+                database.daoUser().deleteUser()
+                database.daoUser().insertUser(
+                    UserRegister(
+                        "$user",
+                        "${response.user.name}",
+                        "${response.user.lastName}",
+                        "${response.user.secondLastName}",
+                        "${response.user.birthday}",
+                        "${response.user.email}",
+                        "${response.user.genre}",
+                        "${response.user.state}",
+                        "${response.user.phone}",
+                        "$pass"
+                    )
+                )
+            }*/
+        }
     }
     private fun setDrawerLayout() {
         setSupportActionBar(binding.topAppBar)
@@ -63,19 +83,24 @@ class ActDashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_profile -> {
-                println("profile")
                 Navigation.findNavController(this, R.id.nav_host_fragment)
                     .navigate(R.id.frgProfile)
             }
             R.id.menu_content -> {
-                println("content")
                 Navigation.findNavController(this, R.id.nav_host_fragment)
                     .navigate(R.id.frgContentProfile)
             }
             R.id.menu_about -> {
-                println("about")
                 Navigation.findNavController(this, R.id.nav_host_fragment)
                     .navigate(R.id.frgAbout)
+            }
+            R.id.menu_toolbar -> {
+                Navigation.findNavController(this, R.id.nav_host_fragment)
+                    .navigate(R.id.frgToolbar)
+            }
+            R.id.menu_pockemon -> {
+                Navigation.findNavController(this, R.id.nav_host_fragment)
+                    .navigate(R.id.frgContentProfile)
             }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)

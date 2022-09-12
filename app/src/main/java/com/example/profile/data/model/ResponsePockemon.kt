@@ -30,6 +30,13 @@ data class Moves(
     @SerializedName("version_group_details")
     var version: List<version_group_details>
 )
+data class result(
+    @SerializedName("name")
+    var name: String,
+
+    @SerializedName("url")
+    var url: String
+)
 data class ResponsePockemon(
     // { Tipo de dato Objeto }
     // [lista de objetos o datos simples]
@@ -52,9 +59,8 @@ data class ResponsePockemon(
     var game: List<GameIndex>,
 
     @SerializedName("moves")
-    var moves: List<Moves>
+    var moves: List<Moves>,
 
+    @SerializedName("results")
+    var results: List<result>
 )
-// name
-// game_indices->version->name
-// moves->move->version_group_details->move_learn_method->name

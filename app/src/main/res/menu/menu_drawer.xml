@@ -13,8 +13,18 @@
             />
         <item
             android:id="@+id/menu_about"
-            android:icon="@drawable/ic_user"
+            android:icon="@drawable/ic_profile"
             android:title="About"
+            />
+        <item
+            android:id="@+id/menu_toolbar"
+            android:icon="@drawable/ic_navigation"
+            android:title="Toolbar"
+            />
+        <item
+            android:id="@+id/menu_pockemon"
+            android:icon="@drawable/ic_pockemon"
+            android:title="Pockemon Api"
             />
     </group>
 </menu>

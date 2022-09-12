@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.example.profile.R
 import com.example.profile.databinding.FrgHomeBinding
 
 class FrgHome : Fragment() {
@@ -22,21 +20,5 @@ class FrgHome : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btn1.setOnClickListener {
-            findNavController().navigate(R.id.toFrgProfile)
-        }
-        binding.btn2.setOnClickListener {
-            findNavController().navigate(R.id.toFrgContentProfile)
-        }
-        binding.btn3.setOnClickListener {
-            findNavController().navigate(R.id.toFrgAbout)
-        }
     }
 }
-/*
-class ExampleFragment : Fragment(R.layout.example_fragment) {
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val someInt = requireArguments().getInt("some_int")
-        ...
-    }
-}*/

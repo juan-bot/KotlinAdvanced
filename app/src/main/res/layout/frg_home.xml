@@ -8,6 +8,7 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
+        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -17,9 +18,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textSize="39dp"
+            android:text="Bienvenido"
             tools:text="Bienvenido"></androidx.appcompat.widget.AppCompatTextView>
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvwelcome"
@@ -27,28 +30,6 @@
             android:textSize="39dp"
             tools:text="Juan"></androidx.appcompat.widget.AppCompatTextView>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn1"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
-            android:text="Guardar"></androidx.appcompat.widget.AppCompatButton>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn2"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/btn1"
-            android:text="Guardar"></androidx.appcompat.widget.AppCompatButton>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn3"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/btn2"
-            android:text="Guardar"></androidx.appcompat.widget.AppCompatButton>
-    </RelativeLayout>
+      </RelativeLayout>
 
 </RelativeLayout>

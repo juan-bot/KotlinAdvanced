@@ -1,5 +1,6 @@
 package com.example.profile.presentation.vm
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,11 +14,11 @@ class LoginViewModel : ViewModel() {
     private val loginUseCase = LoginUseCase()
     private var _stateLogin: MutableLiveData<LoginState> = MutableLiveData()
     val stateLogin: LiveData<LoginState> get() = _stateLogin
-    fun login(loginRequest: LoginRequest) {
+    fun login(loginRequest: LoginRequest, context: Context) {
         viewModelScope.launch {
             // loginUseCase(loginRequest)
             _stateLogin.postValue(LoginState.Cargando)
-            val response = loginUseCase(loginRequest)
+            val response = loginUseCase(loginRequest, context)
             // Thread.sleep(2000)
             if (response.status) {
                 _stateLogin.postValue(LoginState.Exitoso)

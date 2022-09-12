@@ -5,6 +5,9 @@
 
     <string name="obligatori_field">Campo Obligatorio</string>
 
-    <string name = "open_drawer">Drawer Open</string>
-    <string name = "close_drawer">Drawer Close</string>
+    <string name="open_drawer">Drawer Open</string>
+    <string name="close_drawer">Drawer Close</string>
+    <string name="home">Home</string>
+    <string name="noti">Notifications</string>
+    <string name="perfil">Perfil</string>
 </resources>

@@ -19,6 +19,9 @@
         <action
             android:id="@+id/toFrgProfile"
             app:destination="@id/frgProfile" />
+        <action
+            android:id="@+id/action_frgHome_to_frgToolbar"
+            app:destination="@id/frgToolbar" />
     </fragment>
     <fragment
         android:id="@+id/frgAbout"
@@ -27,7 +30,7 @@
         tools:layout="@layout/frg_about" />
     <fragment
         android:id="@+id/frgContentProfile"
-        android:name="com.example.profile.presentation.view.fragment.FrgContentProfile"
+        android:name="com.example.profile.presentation.view.fragment.FrgContent"
         android:label="frg_content_profile"
         tools:layout="@layout/frg_content_profile" />
     <fragment
@@ -35,4 +38,9 @@
         android:name="com.example.profile.presentation.view.fragment.FrgProfile"
         android:label="frg_profile"
         tools:layout="@layout/frg_profile" />
+    <fragment
+        android:id="@+id/frgToolbar"
+        android:name="com.example.profile.presentation.view.fragment.FrgToolbar"
+        android:label="frg_toolbar"
+        tools:layout="@layout/frg_toolbar" />
 </navigation>

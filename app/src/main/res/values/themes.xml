@@ -38,4 +38,5 @@
     <style name="Theme_EditTextJP">
         <item name="android:textSize">20dp</item>
     </style>
+
 </resources>

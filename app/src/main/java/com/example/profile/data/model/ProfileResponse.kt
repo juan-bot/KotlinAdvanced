@@ -3,18 +3,18 @@ package com.example.profile.data.model
 import com.google.gson.annotations.SerializedName
 
 data class User(
-    @SerializedName("user")
-    val user: String,
     @SerializedName("name")
     val name: String,
     @SerializedName("lastname")
     val lastName: String,
+    @SerializedName("secondLastName")
+    val secondLastName: String,
     @SerializedName("birthday")
     val birthday: String,
     @SerializedName("email")
     val email: String,
     @SerializedName("gender")
-    val gender: String,
+    val genre: String,
     @SerializedName("state")
     val state: String,
     @SerializedName("phone")

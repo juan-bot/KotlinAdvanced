@@ -6,7 +6,4 @@ object DBConstant {
 
     // Table User
     const val TB_NAME_USER = "UserRegister"
-
-    // Table User
-    const val TB_NAME_LOGIN = "UserLogin"
 }

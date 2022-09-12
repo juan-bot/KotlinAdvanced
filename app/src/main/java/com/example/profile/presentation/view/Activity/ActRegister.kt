@@ -26,27 +26,40 @@ class ActRegister : AppCompatActivity() {
             val validate = validateField()
 
             lifecycleScope.launch {
-                var data = RegisterRequest(
-                    user = binding.etUser.text.toString(),
-                    name = binding.etName.text.toString(),
-                    lastName = "${binding.etMatern.text}",
-                    secondLastName = "${binding.etPattern.text}",
-                    birthday = binding.etDate.text.toString(),
-                    email = binding.etEmail.text.toString(),
-                    gender = binding.etSex.text.toString(),
-                    state = binding.etState.text.toString(),
-                    phone = binding.etNum.text.toString(),
-                    passwor = binding.etPass.text.toString(),
-                    civil = "soltero"
-                )
-
-                viewModel.register(data)
-                /*lifecycleScope.launch {
-                    val responseLogin = RetrofitClient.api().register(data)
-                    println("Respuesta: $responseLogin")
+                if (validate) {
+                    var data = RegisterRequest(
+                        user = binding.etUser.text.toString(),
+                        name = binding.etName.text.toString(),
+                        lastName = "${binding.etMatern.text}",
+                        secondLastName = "${binding.etPattern.text}",
+                        birthday = binding.etDate.text.toString(),
+                        email = binding.etEmail.text.toString(),
+                        gender = binding.etSex.text.toString(),
+                        state = binding.etState.text.toString(),
+                        phone = binding.etNum.text.toString(),
+                        passwor = binding.etPass.text.toString(),
+                        civil = "soltero"
+                    )
+                    viewModel.register(data)
                 }
-                */
 
+                /*val database = DataBase(this@ActRegister).getDB()
+                // database.daoUser().deleteUser()
+
+                database.daoUser().insertUser(
+                    UserRegister(
+                        binding.etUser.text.toString(),
+                        binding.etName.text.toString(),
+                        binding.etMatern.text.toString(),
+                        binding.etMatern.text.toString(),
+                        binding.etDate.text.toString(),
+                        binding.etEmail.text.toString(),
+                        binding.etSex.text.toString(),
+                        binding.etState.text.toString(),
+                        binding.etNum.text.toString(),
+                        binding.etPass.text.toString()
+                    )
+                )*/
                 /*val users = database.daoUser().getUser()
                 println(users)
                 val name = database.daoUser().getName("root")
@@ -141,6 +154,12 @@ class ActRegister : AppCompatActivity() {
             binding.inputNum.error = getString(R.string.obligatori_field)
         } else {
             binding.inputNum.setError(null)
+        }
+        if (binding.etUser.text.toString() == "") {
+            band = false
+            binding.inputUser.error = getString(R.string.obligatori_field)
+        } else {
+            binding.inputState.setError(null)
         }
         if (binding.etPass.text.toString() == "") {
             band = false

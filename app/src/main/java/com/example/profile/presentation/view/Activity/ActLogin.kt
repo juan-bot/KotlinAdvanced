@@ -20,28 +20,27 @@ class ActLogin : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         binding.btnLogin.setOnClickListener {
-            if (binding.etName.text.toString() != "") {
-                binding.inputName.setError(null)
-            } else {
-                binding.inputName.error = getString(R.string.obligatori_field)
+            if (valida()) {
+                // room
+                /*lifecycleScope.launch {
+                    val database = DataBase(this@ActLogin).getDB()
+                    val response = database.daoUser().getUser(binding.etName.text.toString(), binding.etPass.text.toString())
+                    if (response != null) {
+                        println("existee")
+                    } else {
+                        println("No esta :(")
+                    }
+                }*/
+                // consumo de api
+                var data = LoginRequest(
+                    user = binding.etName.text.toString(),
+                    pass = binding.etPass.text.toString()
+                )
+                viewModel.login(data, this)
             }
-            if (binding.etPass.text.toString() != "") {
-                binding.inputPassword.setError(null)
-            } else {
-                binding.inputPassword.error = getString(R.string.obligatori_field)
-            }
-            println("Dios : ${binding.etName.text}")
-            println("Dios : ${binding.etName.text}")
-            // consumo de api
-            var data = LoginRequest(
-                user = binding.etName.text.toString(),
-                pass = binding.etPass.text.toString()
-            )
-            viewModel.login(data)
         }
         binding.btnRegister.setOnClickListener {
             val intent = Intent(this, ActRegister::class.java).apply {
-                putExtra("aver", binding.etName.text.toString())
             }
             startActivity(intent)
         }
@@ -51,16 +50,35 @@ class ActLogin : AppCompatActivity() {
                     println("API: Cargando")
                 }
                 is LoginState.Exitoso -> {
-                    println("Api: Exitoso")
+                    // println("${LoginState.Exitoso}")
                     val intent = Intent(this, ActDashboard::class.java).apply {
-                        putExtra("mmm", binding.etName.text.toString().trim())
+                        putExtra("user", binding.etName.text.toString())
+                        putExtra("pass", binding.etPass.text.toString())
                     }
                     startActivity(intent)
                 }
                 is LoginState.Error -> {
-                    println("Api: Error ${it.mensaje}")
+                    println("Error ${it.mensaje}")
+                    binding.inputName.setError("Usuario o contraseña incorrecto")
+                    binding.inputPassword.setError("Usuario o contraseña incorrecto")
                 }
             }
         }
+    }
+    private fun valida(): Boolean {
+        var ban = true
+        if (binding.etName.text.toString() != "") {
+            binding.inputName.setError(null)
+        } else {
+            ban = false
+            binding.inputName.error = getString(R.string.obligatori_field)
+        }
+        if (binding.etPass.text.toString() != "") {
+            binding.inputPassword.setError(null)
+        } else {
+            ban = false
+            binding.inputPassword.error = getString(R.string.obligatori_field)
+        }
+        return ban
     }
 }

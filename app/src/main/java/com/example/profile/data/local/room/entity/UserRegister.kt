@@ -9,7 +9,7 @@ import com.example.profile.data.local.room.DBConstant
 data class UserRegister(
     @PrimaryKey
     @ColumnInfo(name = "user")
-    val user: String = "",
+    val user: String,
 
     @ColumnInfo(name = "name")
     val name: String = "",
@@ -36,5 +36,5 @@ data class UserRegister(
     val phone: String,
 
     @ColumnInfo(name = "password")
-    val password: String = ""
+    val password: String
 )
