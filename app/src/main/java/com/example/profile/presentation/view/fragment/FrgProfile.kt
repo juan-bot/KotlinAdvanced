@@ -11,7 +11,7 @@ import com.example.profile.presentation.vm.ProfileViewModel
 
 class FrgProfile : Fragment() {
     private lateinit var binding: FrgProfileBinding
-    private val viewModel: ProfileViewModel by viewModels()
+    private lateinit var viewModel: ProfileViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

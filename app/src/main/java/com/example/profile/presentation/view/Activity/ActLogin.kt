@@ -13,7 +13,9 @@ import com.example.profile.presentation.vm.LoginViewModel
 import com.mh.custom_alert.CustomAlert
 import com.mh.custom_alert.Theme
 import com.mh.custom_alert.Type
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ActLogin : AppCompatActivity() {
     private lateinit var binding: ActLoginBinding
     private val viewModel: LoginViewModel by viewModels()

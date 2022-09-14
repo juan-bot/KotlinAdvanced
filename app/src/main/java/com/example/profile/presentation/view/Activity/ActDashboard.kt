@@ -15,7 +15,9 @@ import com.example.profile.R
 import com.example.profile.databinding.ActDashboardBinding
 import com.example.profile.presentation.vm.GetInfViewModel
 import com.google.android.material.navigation.NavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ActDashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding: ActDashboardBinding
     private lateinit var actionBatDrawerToggle: ActionBarDrawerToggle

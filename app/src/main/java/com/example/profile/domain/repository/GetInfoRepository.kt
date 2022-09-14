@@ -5,8 +5,9 @@ import com.example.profile.data.local.room.DataBase
 import com.example.profile.data.model.ProfileResponse
 import com.example.profile.data.model.User
 import com.example.profile.data.network.RetrofitClient
+import javax.inject.Inject
 
-class GetInfoRepository {
+class GetInfoRepository @Inject constructor() {
     suspend fun getInf(profileRequest: String, context: Context): ProfileResponse {
         val database = DataBase(context).getDB()
         val response = database.daoUser().getUserProfile(profileRequest)

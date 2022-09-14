@@ -6,10 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.profile.data.model.ProfileResponse
 import com.example.profile.domain.usecase.GetInfoUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class GetInfViewModel : ViewModel() {
-    private val getInfoUseCase = GetInfoUseCase()
+@HiltViewModel
+class GetInfViewModel @Inject constructor(
+    private val getInfoUseCase: GetInfoUseCase
+) : ViewModel() {
     var stateInfo: MutableLiveData<ProfileResponse> = MutableLiveData()
     fun getInfo(profileRequest: String, pass: String, context: Context) {
         viewModelScope.launch {

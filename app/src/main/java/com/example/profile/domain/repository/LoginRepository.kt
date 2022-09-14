@@ -5,8 +5,9 @@ import com.example.profile.data.local.room.DataBase
 import com.example.profile.data.model.LoginRequest
 import com.example.profile.data.model.LoginResponse
 import com.example.profile.data.network.RetrofitClient
+import javax.inject.Inject
 
-class LoginRepository {
+class LoginRepository @Inject constructor() {
     suspend fun login(loginRequest: LoginRequest, context: Context): LoginResponse {
         val database = DataBase(context).getDB()
         val response = database.daoUser().getUser(loginRequest.user, loginRequest.pass)
