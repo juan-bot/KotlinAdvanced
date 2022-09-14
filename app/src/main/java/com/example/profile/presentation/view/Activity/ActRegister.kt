@@ -10,7 +10,7 @@ import com.example.profile.R
 import com.example.profile.RegisterState
 import com.example.profile.data.model.RegisterRequest
 import com.example.profile.databinding.ActRegisterBinding
-import com.example.profile.presentation.presenter.DatePickerAlert
+import com.example.profile.presentation.vm.DatePickerAlert
 import com.example.profile.presentation.vm.RegisterViewModel
 import kotlinx.coroutines.launch
 

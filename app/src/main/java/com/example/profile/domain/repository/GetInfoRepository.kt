@@ -12,8 +12,7 @@ class GetInfoRepository {
         val response = database.daoUser().getUserProfile(profileRequest)
         lateinit var res: ProfileResponse
         if (response != null) {
-            println("room ************ $response ----------------")
-            println("existee en room ")
+            println("Entro a ROOM !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             val room = User(
                 "${response.name}",
                 "${response.lastName}",
@@ -31,29 +30,32 @@ class GetInfoRepository {
             )
         } else {
             res = RetrofitClient.api().getInfo(profileRequest)
-            println("api ************ $res ----------------")
         }
         return res
-        // return RetrofitClient.api().getInfo(profileRequest)
     }
-    suspend fun getProfile(profileRequest: String, context: Context): ProfileResponse {
+    suspend fun validateLogin(profileRequest: String, context: Context): ProfileResponse {
         val database = DataBase(context).getDB()
-        val response = database.daoUser().getUsers()
-        val room = User(
-            "${response.name}",
-            "${response.lastName}",
-            "${response.secondLastName}",
-            "${response.birthday}",
-            "${response.email}",
-            "${response.genre}",
-            "${response.state}",
-            "${response.phone}"
-        )
-        var res = ProfileResponse(
-            true,
-            room,
-            "Obtenido de room"
-        )
+        val response = database.daoUser().getUserProfile(profileRequest)
+        lateinit var res: ProfileResponse
+        if (response != null) {
+            val room = User(
+                "${response.name}",
+                "${response.lastName}",
+                "${response.secondLastName}",
+                "${response.birthday}",
+                "${response.email}",
+                "${response.genre}",
+                "${response.state}",
+                "${response.phone}"
+            )
+            res = ProfileResponse(
+                true,
+                room,
+                "Obtenido de room"
+            )
+        } else {
+            res = RetrofitClient.api().getInfo(profileRequest)
+        }
         return res
     }
 }

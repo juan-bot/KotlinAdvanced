@@ -13,5 +13,6 @@ enum class TypeChat(val value: Int) {
 data class Chat(
     val type: TypeChat,
     val message: String,
-    val date: String
+    val date: String,
+    var checked: Boolean
 )

@@ -14,7 +14,7 @@
         android:background="@drawable/ic_profile" />
 
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/tvName1"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageProfile"
@@ -27,17 +27,17 @@
         android:id="@+id/tvEmail"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvName"
+        android:layout_below="@+id/tvName1"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="8dp"
-        tool:text="Juan@gmail.com"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        tool:text="Juan@gmail.com" />
 
     <TextView
         android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvName"
+        android:layout_below="@+id/tvName1"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="20dp"
         android:layout_toEndOf="@+id/tvEmail"

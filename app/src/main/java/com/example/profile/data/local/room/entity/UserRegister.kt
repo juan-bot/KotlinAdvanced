@@ -36,5 +36,5 @@ data class UserRegister(
     val phone: String,
 
     @ColumnInfo(name = "password")
-    val password: String
+    val juanpa123: String
 )

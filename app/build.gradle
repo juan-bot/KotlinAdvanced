@@ -74,7 +74,10 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.4.3'
     kapt 'androidx.room:room-compiler:2.4.3'
 
-
     // Kotlin
     implementation("androidx.fragment:fragment-ktx:1.5.2")
+    // alert
+    implementation 'com.github.MH-projects:CustomAlert:1.1.0'
+    // skeleton
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 }

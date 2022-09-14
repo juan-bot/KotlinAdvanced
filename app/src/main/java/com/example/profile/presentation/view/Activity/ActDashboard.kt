@@ -24,24 +24,16 @@ class ActDashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         binding = ActDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val user = intent.getStringExtra("user").toString()
-        val pass = intent.getStringExtra("pass").toString()
-        viewModel.getInfo(user, pass, this)
-        setNavigationView()
-        setDrawerLayout()
-    }
-
-    private fun setNavigationView() {
-        val navigationView = findViewById<View>(R.id.navView) as NavigationView
-        val viewHeader: View = LayoutInflater.from(this)
-            .inflate(R.layout.header, navigationView, false)
-        navigationView.addHeaderView(viewHeader)
+        val msg = intent.getStringExtra("user").toString().split("-")
+        viewModel.getInfo(msg[0], msg[1], this)
 
         viewModel.stateInfo.observe(this) { response ->
-            val tvName: TextView = findViewById(R.id.tvName)
+            val tvName: TextView = findViewById(R.id.tvName1)
+            val tvNameDash: TextView = findViewById(R.id.tvName)
             val tvEmail: TextView = findViewById(R.id.tvEmail)
             tvName.setText("${response.user.name}")
-            tvEmail.setText(" ")
+            tvEmail.setText("${response.user.email}")
+            tvNameDash.setText("${response.user.name}")
             /*lifecycleScope.launch {
                 val database = DataBase(this@ActDashboard).getDB()
                 database.daoUser().deleteUser()
@@ -61,6 +53,15 @@ class ActDashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 )
             }*/
         }
+        setNavigationView()
+        setDrawerLayout()
+    }
+
+    private fun setNavigationView() {
+        val navigationView = findViewById<View>(R.id.navView) as NavigationView
+        val viewHeader: View = LayoutInflater.from(this)
+            .inflate(R.layout.header, navigationView, false)
+        navigationView.addHeaderView(viewHeader)
     }
     private fun setDrawerLayout() {
         setSupportActionBar(binding.topAppBar)

@@ -5,7 +5,7 @@
  * Copyright (c) 2022 Develop-MX. All rights reserved
  */
 
-package com.example.profile.presentation.presenter
+package com.example.profile.presentation.vm
 
 import android.app.DatePickerDialog
 import android.content.Context

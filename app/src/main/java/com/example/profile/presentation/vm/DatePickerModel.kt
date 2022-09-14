@@ -1,4 +1,4 @@
-package com.example.profile.presentation.presenter
+package com.example.profile.presentation.vm
 
 import android.app.DatePickerDialog
 import android.content.Context

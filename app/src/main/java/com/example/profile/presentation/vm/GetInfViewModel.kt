@@ -4,8 +4,6 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.profile.data.local.room.DataBase
-import com.example.profile.data.local.room.entity.UserRegister
 import com.example.profile.data.model.ProfileResponse
 import com.example.profile.domain.usecase.GetInfoUseCase
 import kotlinx.coroutines.launch
@@ -17,8 +15,25 @@ class GetInfViewModel : ViewModel() {
         viewModelScope.launch {
             val response = getInfoUseCase(profileRequest, context)
             stateInfo.postValue(response)
-            val database = DataBase(context).getDB()
-            database.daoUser().deleteUser()
+            /* val database = DataBase(context).getDB()
+            val response = database.daoUser().getUsers()
+            stateInfo.postValue(
+                ProfileResponse(
+                    true,
+                    User(
+                        response.name,
+                        response.lastName,
+                        response.secondLastName,
+                        response.birthday,
+                        response.email,
+                        response.genre,
+                        response.state,
+                        response.phone
+                    ),
+                    ""
+                )
+            )*/
+            /*
             database.daoUser().insertUser(
                 UserRegister(
                     "$profileRequest",
@@ -32,7 +47,7 @@ class GetInfViewModel : ViewModel() {
                     "${response.user.phone}",
                     "$pass"
                 )
-            )
+            )*/
         }
     }
 }

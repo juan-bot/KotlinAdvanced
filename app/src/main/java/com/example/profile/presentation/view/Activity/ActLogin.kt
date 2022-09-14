@@ -2,6 +2,7 @@ package com.example.profile.presentation.view.Activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.profile.LoginState
@@ -9,6 +10,9 @@ import com.example.profile.R
 import com.example.profile.data.model.LoginRequest
 import com.example.profile.databinding.ActLoginBinding
 import com.example.profile.presentation.vm.LoginViewModel
+import com.mh.custom_alert.CustomAlert
+import com.mh.custom_alert.Theme
+import com.mh.custom_alert.Type
 
 class ActLogin : AppCompatActivity() {
     private lateinit var binding: ActLoginBinding
@@ -16,6 +20,7 @@ class ActLogin : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActLoginBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
@@ -45,24 +50,36 @@ class ActLogin : AppCompatActivity() {
             startActivity(intent)
         }
         viewModel.stateLogin.observe(this) {
+            val customAlert = CustomAlert(this@ActLogin, Theme.SYSTEM)
+            customAlert.dismiss()
             when (it) {
                 is LoginState.Cargando -> {
-                    println("API: Cargando")
+                    customAlert.setType(Type.PROGRESS)
+                    customAlert.setTitle("Verificando tus datos")
                 }
                 is LoginState.Exitoso -> {
                     // println("${LoginState.Exitoso}")
                     val intent = Intent(this, ActDashboard::class.java).apply {
-                        putExtra("user", binding.etName.text.toString())
-                        putExtra("pass", binding.etPass.text.toString())
+                        putExtra("user", "${binding.etName.text.toString()}-${binding.etPass.text.toString()}")
                     }
                     startActivity(intent)
                 }
                 is LoginState.Error -> {
-                    println("Error ${it.mensaje}")
-                    binding.inputName.setError("Usuario o contraseña incorrecto")
-                    binding.inputPassword.setError("Usuario o contraseña incorrecto")
+                    customAlert.dismiss()
+                    customAlert.setType(Type.FAIL)
+                    customAlert.setTitle("Error!")
+                    customAlert.setMessage(it.mensaje)
+                    customAlert.setPositiveText(
+                        "Ok",
+                        object : View.OnClickListener {
+                            override fun onClick(v: View?) {
+                                customAlert.dismiss()
+                            }
+                        }
+                    )
                 }
             }
+            customAlert.show()
         }
     }
     private fun valida(): Boolean {
