@@ -11,9 +11,6 @@
         android:label="frg_home"
         tools:layout="@layout/frg_home" >
         <action
-            android:id="@+id/toFrgAbout"
-            app:destination="@id/frgAbout" />
-        <action
             android:id="@+id/toFrgContentProfile"
             app:destination="@id/frgContentProfile" />
         <action
@@ -27,7 +24,12 @@
         android:id="@+id/frgAbout"
         android:name="com.example.profile.presentation.view.fragment.FrgAbout"
         android:label="frg_about"
-        tools:layout="@layout/frg_about" />
+        tools:layout="@layout/frg_about" >
+        <action
+            android:id="@+id/toFrgAboutB"
+            app:destination="@id/frgAboutB"
+            />
+    </fragment>
     <fragment
         android:id="@+id/frgContentProfile"
         android:name="com.example.profile.presentation.view.fragment.FrgContent"
@@ -43,4 +45,44 @@
         android:name="com.example.profile.presentation.view.fragment.FrgToolbar"
         android:label="frg_toolbar"
         tools:layout="@layout/frg_toolbar" />
+    <fragment
+        android:id="@+id/frgAboutB"
+        android:name="com.example.profile.presentation.view.fragment.FrgAboutB"
+        android:label="frg_about_b"
+        tools:layout="@layout/frg_about_b" >
+        <action
+            android:id="@+id/toFrgAboutC"
+            app:destination="@id/frgAboutC" />
+        <argument
+            android:name="argFromA"
+            app:argType="string"
+            />
+        <argument
+            android:name="argFromA2"
+            app:argType="string"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/frgAboutC"
+        android:name="com.example.profile.presentation.view.fragment.FrgAboutC"
+        android:label="frg_about_c"
+        tools:layout="@layout/frg_about_c" >
+        <action
+            android:id="@+id/toFrgAbout"
+            app:destination="@id/frgAbout"
+            app:popUpTo="@id/frgAbout"
+            app:popUpToInclusive="true"/>
+        <argument
+            android:name="argFromB1"
+            app:argType="string"
+            />
+        <argument
+            android:name="argFromB2"
+            app:argType="integer"
+            />
+        <argument
+            android:name="argFromB3"
+            app:argType="boolean"
+            />
+    </fragment>
 </navigation>

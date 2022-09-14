@@ -9,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import com.example.profile.R
 import com.example.profile.databinding.ActDashboardBinding
@@ -28,10 +29,10 @@ class ActDashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         viewModel.getInfo(msg[0], msg[1], this)
 
         viewModel.stateInfo.observe(this) { response ->
-            val tvName: TextView = findViewById(R.id.tvName1)
+            // val tvName: TextView = findViewById(R.id.tvName1)
             val tvNameDash: TextView = findViewById(R.id.tvName)
             val tvEmail: TextView = findViewById(R.id.tvEmail)
-            tvName.setText("${response.user.name}")
+            // tvName.setText("${response.user.name}")
             tvEmail.setText("${response.user.email}")
             tvNameDash.setText("${response.user.name}")
             /*lifecycleScope.launch {
@@ -84,8 +85,10 @@ class ActDashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_profile -> {
-                Navigation.findNavController(this, R.id.nav_host_fragment)
-                    .navigate(R.id.frgProfile)
+                val navOptions: NavOptions = NavOptions.Builder().setPopUpTo(R.id.frgProfile, true).build()
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.frgProfile, null, navOptions)
+            /*Navigation.findNavController(this, R.id.nav_host_fragment)
+                    .navigate(R.id.frgProfile)*/
             }
             R.id.menu_content -> {
                 Navigation.findNavController(this, R.id.nav_host_fragment)

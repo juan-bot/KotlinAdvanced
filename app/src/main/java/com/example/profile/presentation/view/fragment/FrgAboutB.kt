@@ -6,23 +6,27 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.profile.R
-import com.example.profile.databinding.FrgAboutBinding
+import com.example.profile.databinding.FrgAboutBBinding
 
-class FrgAbout : Fragment() {
-    private lateinit var binding: FrgAboutBinding
+class FrgAboutB : Fragment() {
+    private lateinit var binding: FrgAboutBBinding
+    private val argsFromA: FrgAboutBArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FrgAboutBinding.inflate(inflater, container, false)
+        binding = FrgAboutBBinding.inflate(inflater, container, false)
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnToB.setOnClickListener {
-            val actionWithParametes = FrgAboutDirections.toFrgAboutB("Hola es un parametro", "arg 2")
+        println("arg 1: ${argsFromA.argFromA}")
+        println("arg 2: ${argsFromA.argFromA2}")
+        binding.btnToC.setOnClickListener {
+            val actionWithParametes = FrgAboutBDirections.toFrgAboutC("Args from B", 21, true)
             findNavController().navigate(actionWithParametes)
         }
     }
