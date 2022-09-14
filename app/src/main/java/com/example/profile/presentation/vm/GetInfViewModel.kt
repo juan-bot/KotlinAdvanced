@@ -8,8 +8,9 @@ import com.example.profile.data.model.ProfileResponse
 import com.example.profile.domain.usecase.GetInfoUseCase
 import kotlinx.coroutines.launch
 
-class GetInfViewModel : ViewModel() {
-    private val getInfoUseCase = GetInfoUseCase()
+class GetInfViewModel(
+    private val getInfoUseCase: GetInfoUseCase
+) : ViewModel() {
     var stateInfo: MutableLiveData<ProfileResponse> = MutableLiveData()
     fun getInfo(profileRequest: String, pass: String, context: Context) {
         viewModelScope.launch {

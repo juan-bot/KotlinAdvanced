@@ -3,7 +3,6 @@ package com.example.profile.presentation.view.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.profile.LoginState
 import com.example.profile.R
@@ -13,10 +12,11 @@ import com.example.profile.presentation.vm.LoginViewModel
 import com.mh.custom_alert.CustomAlert
 import com.mh.custom_alert.Theme
 import com.mh.custom_alert.Type
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ActLogin : AppCompatActivity() {
     private lateinit var binding: ActLoginBinding
-    private val viewModel: LoginViewModel by viewModels()
+    private val viewModel by viewModel<LoginViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

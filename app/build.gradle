@@ -81,4 +81,6 @@ dependencies {
     implementation 'com.github.MH-projects:CustomAlert:1.1.0'
     // skeleton
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    // koin
+    implementation "io.insert-koin:koin-android:3.1.2"
 }

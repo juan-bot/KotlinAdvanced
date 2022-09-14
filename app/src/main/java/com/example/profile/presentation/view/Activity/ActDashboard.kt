@@ -15,11 +15,12 @@ import com.example.profile.R
 import com.example.profile.databinding.ActDashboardBinding
 import com.example.profile.presentation.vm.GetInfViewModel
 import com.google.android.material.navigation.NavigationView
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ActDashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding: ActDashboardBinding
     private lateinit var actionBatDrawerToggle: ActionBarDrawerToggle
-    private val viewModel: GetInfViewModel by viewModels()
+    private val viewModel by viewModel<GetInfViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
