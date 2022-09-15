@@ -31,12 +31,12 @@ class ActDashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         viewModel.getInfo(msg[0], msg[1], this)
 
         viewModel.stateInfo.observe(this) { response ->
-            // val tvName: TextView = findViewById(R.id.tvName1)
-            val tvNameDash: TextView = findViewById(R.id.tvName)
+            val tvName: TextView = findViewById(R.id.tvName1)
+            // val tvNameDash: TextView = findViewById(R.id.tvName)
             val tvEmail: TextView = findViewById(R.id.tvEmail)
-            // tvName.setText("${response.user.name}")
+            tvName.setText("${response.user.name}")
             tvEmail.setText("${response.user.email}")
-            tvNameDash.setText("${response.user.name}")
+            // tvNameDash.setText("${response.user.name}")
             /*lifecycleScope.launch {
                 val database = DataBase(this@ActDashboard).getDB()
                 database.daoUser().deleteUser()
@@ -107,6 +107,14 @@ class ActDashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.menu_pockemon -> {
                 Navigation.findNavController(this, R.id.nav_host_fragment)
                     .navigate(R.id.frgContentProfile)
+            }
+            R.id.menu_webView -> {
+                Navigation.findNavController(this, R.id.nav_host_fragment)
+                    .navigate(R.id.frgWeb)
+            }
+            R.id.menu_notifications -> {
+                Navigation.findNavController(this, R.id.nav_host_fragment)
+                    .navigate(R.id.frgNotification)
             }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)

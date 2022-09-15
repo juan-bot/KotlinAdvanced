@@ -26,5 +26,15 @@
             android:icon="@drawable/ic_pockemon"
             android:title="Pockemon Api"
             />
+        <item
+            android:id="@+id/menu_webView"
+            android:icon="@drawable/ic_pockemon"
+            android:title="Web View"
+            />
+        <item
+            android:id="@+id/menu_notifications"
+            android:icon="@drawable/ic_lock"
+            android:title="Notifications"
+            />
     </group>
 </menu>

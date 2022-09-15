@@ -19,6 +19,12 @@
         <action
             android:id="@+id/action_frgHome_to_frgToolbar"
             app:destination="@id/frgToolbar" />
+        <action
+            android:id="@+id/toFrgWeb"
+            app:destination="@id/frgWeb" />
+        <action
+            android:id="@+id/toFrgNotification"
+            app:destination="@id/frgNotification" />
     </fragment>
     <fragment
         android:id="@+id/frgAbout"
@@ -85,4 +91,14 @@
             app:argType="boolean"
             />
     </fragment>
+    <fragment
+        android:id="@+id/frgWeb"
+        android:name="com.example.profile.presentation.view.fragment.FrgWeb"
+        android:label="frg_web"
+        tools:layout="@layout/frg_web" />
+    <fragment
+        android:id="@+id/frgNotification"
+        android:name="com.example.profile.presentation.view.fragment.FrgNotification"
+        android:label="frg_notification"
+        tools:layout="@layout/frg_notification" />
 </navigation>
